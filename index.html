@@ -12,60 +12,70 @@
 
     <script src="./dist/cafe.js"></script>
     <script src="./dist/map.js"></script>
-    <script src="./dist/menus.js"></script>
     
     <script src="./dist/list.js"></script>
+    <script src="./dist/menus.js"></script>
+    <script src="./dist/game copy.js"></script>
     <script src="./dist/score.js"></script>
     
 
-    <style>
-        body{
-            background-color: rgb(62, 185, 181);
-        }
-    </style>
-
-
 </head>
 
-<body>
+<body class = "all">
+    
+    <div class="header">
+        <div class = "innerHeader">
+            <img class = "logo" src="Drinkly.png">
+            <div class="instructions">
+                <div>Scroll through menus of your fave coffee
+                shops and collect all of the listed items to win the game!</div>
 
-    <div class="float-container">       
-                <div class = "float-child-1">
-                    <div id="map"></div>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0pHayRHawjLEZSWpO7Aq3OCR3lhp63TQ&callback=initMap">
-                    </script>
-                </div>
+                <div style="color:green">+10 points for every correct item!</div>
+                <div style="color:red">-5 points for every incorrect item!</div>
+                
+            </div>
+        
 
-                <div class = "float-child-2">
-                    <div class = "menuBar" id="list"></div>
-                </div>
+        <a href="https://www.linkedin.com/in/annie-yang-48780175/">
+        <img class="linkedin" src="Linkedin.png"> </a>
+
+        <a href="https://github.com/annieyang1993">
+        <img class="github" src="github.png"></a>
+
+        <a href="https://www.instagram.com/drinklyrevolution/">
+        <img class="instagram" src="Instagram.jpeg" ></a>
+        
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-                loadAll();
-                //const rootEl = document.querySelector(".ttt");
-                //new View(game, rootEl);
-        });
-        // currentShop = null;
-        // for (let i = 0; i < markers.length; i++) {
-        //         markers[i].addListener("mouseover", () => {
-        //             currentShop = cafes[i];
-        //             loadOne(currentShop);
-
-        //         });
-        //         markers[i].addListener("mouseout", () => {
-        //             currentShop = null;
-        //             loadAll();
-        //         });
-        //     };
-        //                 // if (currentShop === null) {
-        //                 //     loadAll();
-        //                 // }
-                            
-
-    </script>
 
     
+    <div class="stats">
+        <div class="score"></div>
+        <div class="highScore"></div>
+        <div class="level">Level: 1</div>
+        <div class="time">Time Left: 30</div>
+        <div class="NewGame">New Game</div>
+        <script>
+            const ele = document.querySelector(".NewGame");
+            game = null;
+            ele.addEventListener('click', ()=>{
+                newGame();
+            });
+
+        </script>
+    </div>
+            <marquee direction="left" class="marquee">
+                Drinkly
+            </marquee>
+    </div>
+    <div class = "lowerBody">
+    <iframe class = "mapFrame" src="map.html"></iframe>
+    </div>
+    <script>
+        scoreView = document.getElementsByClassName("score");
+        scoreView[0].innerText = `Score: ${localStorage.getItem('score')}`;
+        highScoreView = document.getElementsByClassName("highScore");
+        highScoreView[0].innerText = `High Score: ${localStorage.getItem('highScore') ? localStorage.getItem('highScore'): 0}`;
+    </script>
     
 
 </body>

@@ -69,7 +69,7 @@ function tick(){
             //score = 0;
             localStorage.setItem('score', 0);
             timer[0].innerText = `GAME OVER!!!!`;
-            highScoreDisplay[0].setAttribute("style", "color:green")
+            //highScoreDisplay[0].setAttribute("style", "color:green")
             
             //play = false
             localStorage.setItem('play', false);
