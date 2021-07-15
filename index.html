@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,12 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <script src="./dist/main.js"></script>
-    <title>Project Name</title>
+    <script src="./dist/map.js"></script>
+    <title>Drinkly</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+
+    <script src="./dist/cafe.js"></script>
+    <script src="./dist/map.js"></script>
+    <script src="./dist/menus.js"></script>
+    
+    <script src="./dist/list.js"></script>
+    <script src="./dist/score.js"></script>
+    
+
+    <style>
+        body{
+            background-color: rgb(62, 185, 181);
+        }
+    </style>
+
+
 </head>
 
 <body>
+
+    <div class="float-container">       
+                <div class = "float-child-1">
+                    <div id="map"></div>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0pHayRHawjLEZSWpO7Aq3OCR3lhp63TQ&callback=initMap">
+                    </script>
+                </div>
+
+                <div class = "float-child-2">
+                    <div class = "menuBar" id="list"></div>
+                </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+                loadAll();
+                //const rootEl = document.querySelector(".ttt");
+                //new View(game, rootEl);
+        });
+        // currentShop = null;
+        // for (let i = 0; i < markers.length; i++) {
+        //         markers[i].addListener("mouseover", () => {
+        //             currentShop = cafes[i];
+        //             loadOne(currentShop);
+
+        //         });
+        //         markers[i].addListener("mouseout", () => {
+        //             currentShop = null;
+        //             loadAll();
+        //         });
+        //     };
+        //                 // if (currentShop === null) {
+        //                 //     loadAll();
+        //                 // }
+                            
+
+    </script>
+
+    
+    
+
 </body>
 
 </html>
-```

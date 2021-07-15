@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+    <script src="./dist/cafe.js"></script>
+    <script src="./dist/map.js"></script>
+    <script src="./dist/menuLoader.js"></script>
+    <script src="./dist/menus.js"></script>
+    <script src="./dist/score.js"></script>
+    <script src="main.html"></script>
+    
+
+
+</head>
+
+<body class = "menuBody">
+
+            <div id="back">
+                back
+            </div>
+            <div class="menuLoader">
+            
+            </div>
+            <script>
+                menuList = document.querySelector(".menuLoader");
+                menu0.forEach((item) => {
+
+                    const square = document.createElement("div");
+                    square.setAttribute("class", "float-container-list-menu");
+                    square.setAttribute("height", "100");
+                    square.setAttribute("width", "100")
+                    square.setAttribute("border", "1px solid black");
+                    square.setAttribute("background-color", "black");
+                    square.setAttribute("overflow-y", "auto");
+
+                    const div1 = document.createElement("div");
+                    div1.setAttribute("class", "float-child-list-3");
+                    const div2 = document.createElement("div");
+                    div2.setAttribute("class", "float-child-list-4");
+                    //div1.setAttribute("width", "30%");
+                    //div2.setAttribute("width", "70%");
+                    const img = document.createElement("img");
+                    img.setAttribute("src", item.image);
+                    img.setAttribute("height", "110");
+                    img.setAttribute("width", "170");
+                    img.setAttribute("style", "vertical-align:middle;margin:15px");
+                    //img.setAttribute("border", "black");
+
+                    const div = document.createElement("div");
+                    div.innerHTML = item.name;
+                    div.setAttribute("style", "color:black");
+                    div.setAttribute("style", "text-align:center;margin-top:15px;color:rgb(62, 185, 181);font-weight:bold");
+                    //div.setAttribute("style", "color:rgb(62, 185, 181)")
+                    //div.setAttribute("style", "vertical-align:middle;margin:15px")
+
+
+                    div1.append(img);
+                    div2.append(div);
+
+                    square.append(div1);
+                    square.append(div2);
+        
+                    menuList.append(square);
+
+                })
+                console.log(menuList)</script>
+
+    <script>
+        backButton = document.getElementById("back");
+        backButton.addEventListener("click", ()=>{
+            location.href = "index.html";
+        });
+    for (let i = 0; i < menuList.childNodes.length; i++) {
+            menuList.childNodes[i].addEventListener("mouseover", () => {
+                menuList.childNodes[i].setAttribute("style", "background-color: rgb(241, 227, 243);");
+                //     setTimeout(() => {
+                //         list.childNodes[i].setAttribute("style", "background-color:white")
+                //     }, 100)
+                // }, false);
+
+            });
+        }
+
+        for (let i = 0; i < menuList.childNodes.length; i++) {
+
+            menuList.childNodes[i].addEventListener("mouseout", () => {
+                menuList.childNodes[i].setAttribute("style", "background-color:rgb(207, 230, 229);");
+
+                //     setTimeout(() => {
+                //         list.childNodes[i].setAttribute("style", "background-color:white")
+                //     }, 100)
+                // }, false);
+
+            });
+        }
+            //scoreEle = document.getElementById("score");
+            //scoreEle.innerText = `Score: ${score}`;
+            for (let i = 1; i < menuList.childNodes.length; i++) {
+
+                menuList.childNodes[i].addEventListener("click", () => {
+                    // console.log(menu0[i-1]);
+                    //     if (game.list.includes(menu0[i-1])) {
+                    //         console.log("WE ARE PLAYING RIGHT NOW!");
+                    //     }
+                    play = localStorage.getItem('play');
+                    list = localStorage.getItem('list');
+                    display = localStorage.getItem('display').split(', ');
+                    if (play==="true"){
+                        console.log("IN THE LOOP!");
+                        if (display.includes(String(menu0[i-1].name))){
+                            localStorage.setItem('score', parseInt(localStorage.getItem('score')) + 10);
+                            //localStorage.setItem('clickedList', localStorage.getItem('clickedList').split(', ').push(String(menu0[i-1].name)).join(', '));
+                            //&&!localStorage.getItem('clickedList').split(', ').includes(String(menu0[i - 1].name))
+                            console.log(parseInt(localStorage.getItem('score')));
+                            menuList.childNodes[i].setAttribute("style", "background-color: green;");
+                        
+                        } else{
+                            localStorage.setItem('score', parseInt(localStorage.getItem('score')) - 5);
+                            menuList.childNodes[i].setAttribute("style", "background-color: red;");
+                        
+                        }
+                    
+                    }
+                    
+                    console.log(display);
+                    console.log(String(menu0[i-1].name));
+                    
+
+                    //     setTimeout(() => {
+                    //         list.childNodes[i].setAttribute("style", "background-color:white")
+                    //     }, 100)
+                    // }, false);
+
+            });
+        }
+
+
+    </script>
+
+</body>
+
+</html>
