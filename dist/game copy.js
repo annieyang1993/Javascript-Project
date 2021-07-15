@@ -5,7 +5,7 @@ list = [];
 clickedList=["1", "2"];
 play = false;
 highScore = localStorage.getItem('highScore')||0;
-//localStorage.setItem('highScore', 0);
+localStorage.setItem('highScore', 0);
 
 localStorage.setItem('score', score);
 localStorage.setItem('list', list);
